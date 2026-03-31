@@ -482,9 +482,9 @@ canvas{display:block;width:100%;flex:1;min-height:0}
       <div id="panel-costos" style="display:none">
         <div class="sec">
           <div class="sec-title">Costo del tratamiento (MXN/año)</div>
-          <div class="row"><span class="lbl">Arezolán + PA (anual)</span><span class="chip" id="c-drug">$420,000</span></div>
-          <input type="range" id="sl-drug" min="100000" max="900000" step="10000" value="420000">
-          <div class="re"><span>$100K</span><span>$900K</span></div>
+          <div class="row"><span class="lbl">Arezolán + PA (anual)</span><span class="chip" id="c-drug">$80,000</span></div>
+          <input type="range" id="sl-drug" min="10000" max="500000" step="10000" value="80000">
+          <div class="re"><span>$10K</span><span>$500K</span></div>
           <div class="row"><span class="lbl">Estándar PA sola (anual)</span><span class="chip" id="c-std-cost">$18,000</span></div>
           <input type="range" id="sl-std-cost" min="5000" max="80000" step="1000" value="18000">
           <div class="re"><span>$5K</span><span>$80K</span></div>
@@ -617,7 +617,7 @@ canvas{display:block;width:100%;flex:1;min-height:0}
 
 </div>
 <script>
-const S={efs_std:1.04,efs_new:0.44,os_std:0.40,os_new:0.23,drug:420000,std_cost:18000,state_a:48000,state_p:96000,disc:5,horiz:5,u_active:.78,u_prog:.52,wtp:260000};
+const S={efs_std:1.04,efs_new:0.44,os_std:0.40,os_new:0.23,drug:80000,std_cost:18000,state_a:48000,state_p:96000,disc:5,horiz:5,u_active:.78,u_prog:.52,wtp:260000};
 let LEFT_TAB='efect',SEC='settings',SURV_TAB='efs-c',RES_TAB='outcomes';
 
 const fMXN=n=>{const a=Math.abs(n);return(n<0?'-$':'$')+(a>=1e6?(a/1e6).toFixed(2)+'M':Math.round(a).toLocaleString('es-MX'));};

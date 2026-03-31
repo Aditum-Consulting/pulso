@@ -459,23 +459,23 @@ canvas{display:block;width:100%;flex:1;min-height:0}
 
       <div id="panel-efect">
         <div class="sec">
-          <div class="sec-title">Supervivencia libre de radiología</div>
-          <div class="sec-hint">Lambda de la distribución exponencial. Valores menores indican mayor duración libre de progresión radiológica.</div>
-          <div class="row"><span class="lbl">Estándar (PA sola)</span><span class="chip" id="c-efs-std">0.039</span></div>
-          <input type="range" id="sl-efs-std" min="0.010" max="0.120" step="0.001" value="0.039">
-          <div class="re"><span>0.010</span><span>0.120</span></div>
-          <div class="row"><span class="lbl">Arezolán + PA</span><span class="chip" id="c-efs-new">0.015</span></div>
-          <input type="range" id="sl-efs-new" min="0.005" max="0.080" step="0.001" value="0.015">
-          <div class="re"><span>0.005</span><span>0.080</span></div>
+          <div class="sec-title">Supervivencia libre de progresión</div>
+          <div class="sec-hint">Lambda de la distribución exponencial. Valores menores indican mayor duración libre de progresión.</div>
+          <div class="row"><span class="lbl">Estándar (PA sola)</span><span class="chip" id="c-efs-std">1.040</span></div>
+          <input type="range" id="sl-efs-std" min="0.30" max="3.00" step="0.05" value="1.04">
+          <div class="re"><span>0.30</span><span>3.00</span></div>
+          <div class="row"><span class="lbl">Arezolán + PA</span><span class="chip" id="c-efs-new">0.440</span></div>
+          <input type="range" id="sl-efs-new" min="0.10" max="2.00" step="0.05" value="0.44">
+          <div class="re"><span>0.10</span><span>2.00</span></div>
         </div>
         <div class="sec">
           <div class="sec-title">Supervivencia global (OS)</div>
-          <div class="row"><span class="lbl">Estándar (PA sola)</span><span class="chip" id="c-os-std">0.024</span></div>
-          <input type="range" id="sl-os-std" min="0.005" max="0.060" step="0.001" value="0.024">
-          <div class="re"><span>0.005</span><span>0.060</span></div>
-          <div class="row"><span class="lbl">Arezolán + PA</span><span class="chip" id="c-os-new">0.016</span></div>
-          <input type="range" id="sl-os-new" min="0.003" max="0.040" step="0.001" value="0.016">
-          <div class="re"><span>0.003</span><span>0.040</span></div>
+          <div class="row"><span class="lbl">Estándar (PA sola)</span><span class="chip" id="c-os-std">0.400</span></div>
+          <input type="range" id="sl-os-std" min="0.15" max="2.00" step="0.05" value="0.40">
+          <div class="re"><span>0.15</span><span>2.00</span></div>
+          <div class="row"><span class="lbl">Arezolán + PA</span><span class="chip" id="c-os-new">0.230</span></div>
+          <input type="range" id="sl-os-new" min="0.08" max="1.50" step="0.05" value="0.23">
+          <div class="re"><span>0.08</span><span>1.50</span></div>
         </div>
       </div>
 
@@ -507,8 +507,8 @@ canvas{display:block;width:100%;flex:1;min-height:0}
           <div class="row"><span class="lbl">Tasa de descuento (%)</span><span class="chip" id="c-disc">5%</span></div>
           <input type="range" id="sl-disc" min="0" max="15" step="0.5" value="5">
           <div class="re"><span>0%</span><span>15%</span></div>
-          <div class="row"><span class="lbl">Horizonte (años)</span><span class="chip" id="c-horiz">10 años</span></div>
-          <input type="range" id="sl-horiz" min="3" max="20" step="1" value="10">
+          <div class="row"><span class="lbl">Horizonte (años)</span><span class="chip" id="c-horiz">5 años</span></div>
+          <input type="range" id="sl-horiz" min="3" max="20" step="1" value="5">
           <div class="re"><span>3</span><span>20</span></div>
         </div>
         <div class="sec">
@@ -571,14 +571,14 @@ canvas{display:block;width:100%;flex:1;min-height:0}
     <!-- MODELED SURVIVAL -->
     <div class="sec-view" id="sec-survival">
       <div class="sub-tab-row">
-        <button class="sub-tab active" id="stab-efs-c" onclick="setSurvTab('efs-c')">SLR: curvas</button>
+        <button class="sub-tab active" id="stab-efs-c" onclick="setSurvTab('efs-c')">SLP: curvas</button>
         <button class="sub-tab" id="stab-os-c" onclick="setSurvTab('os-c')">OS: curvas</button>
-        <button class="sub-tab" id="stab-efs-m" onclick="setSurvTab('efs-m')">SLR mediana</button>
+        <button class="sub-tab" id="stab-efs-m" onclick="setSurvTab('efs-m')">SLP mediana</button>
         <button class="sub-tab" id="stab-os-m" onclick="setSurvTab('os-m')">OS mediana</button>
       </div>
       <div class="chart-area">
-        <div class="chart-title" id="surv-title">Supervivencia libre de radiología (SLR)</div>
-        <div class="chart-sub" id="surv-sub">Distribución exponencial. Probabilidad de permanecer libre de progresión radiológica a lo largo del horizonte.</div>
+        <div class="chart-title" id="surv-title">Supervivencia libre de progresión (SLP)</div>
+        <div class="chart-sub" id="surv-sub">Distribución exponencial. Probabilidad de permanecer libre de progresión a lo largo del horizonte.</div>
         <canvas id="cv-surv"></canvas>
       </div>
     </div>
@@ -617,7 +617,7 @@ canvas{display:block;width:100%;flex:1;min-height:0}
 
 </div>
 <script>
-const S={efs_std:.039,efs_new:.015,os_std:.024,os_new:.016,drug:420000,std_cost:18000,state_a:48000,state_p:96000,disc:5,horiz:10,u_active:.78,u_prog:.52,wtp:260000};
+const S={efs_std:1.04,efs_new:0.44,os_std:0.40,os_new:0.23,drug:420000,std_cost:18000,state_a:48000,state_p:96000,disc:5,horiz:5,u_active:.78,u_prog:.52,wtp:260000};
 let LEFT_TAB='efect',SEC='settings',SURV_TAB='efs-c',RES_TAB='outcomes';
 
 const fMXN=n=>{const a=Math.abs(n);return(n<0?'-$':'$')+(a>=1e6?(a/1e6).toFixed(2)+'M':Math.round(a).toLocaleString('es-MX'));};
@@ -628,7 +628,7 @@ function setTab(t){LEFT_TAB=t;['efect','costos','modelo'].forEach(id=>{document.
 
 function setSec(s){SEC=s;['settings','survival','results'].forEach(id=>{document.getElementById('secbtn-'+id).classList.toggle('active',id===s);document.getElementById('sec-'+id).classList.toggle('active',id===s);});requestAnimationFrame(draw);}
 
-function setSurvTab(t){SURV_TAB=t;['efs-c','os-c','efs-m','os-m'].forEach(id=>document.getElementById('stab-'+id).classList.toggle('active',id===t));const m={'efs-c':['Supervivencia libre de radiología (SLR)','Distribución exponencial. Probabilidad de permanecer libre de progresión radiológica a lo largo del horizonte.'],'os-c':['Supervivencia global (OS)','Probabilidad de estar vivo en cada punto del horizonte temporal para ambos brazos de tratamiento.'],'efs-m':['SLR mediana por brazo (meses)','Mediana estimada desde la simulación. Tiempo en que el 50% de los pacientes permanece libre de progresión.'],'os-m':['OS mediana por brazo (meses)','Mediana de supervivencia global estimada. Tiempo hasta que la mitad de la cohorte ha fallecido.']};document.getElementById('surv-title').textContent=m[t][0];document.getElementById('surv-sub').textContent=m[t][1];requestAnimationFrame(drawSurv);}
+function setSurvTab(t){SURV_TAB=t;['efs-c','os-c','efs-m','os-m'].forEach(id=>document.getElementById('stab-'+id).classList.toggle('active',id===t));const m={'efs-c':['Supervivencia libre de progresión (SLP)','Distribución exponencial. Probabilidad de permanecer libre de progresión a lo largo del horizonte.'],'os-c':['Supervivencia global (OS)','Probabilidad de estar vivo en cada punto del horizonte temporal para ambos brazos de tratamiento.'],'efs-m':['SLP mediana por brazo (meses)','Mediana estimada desde la simulación. Tiempo en que el 50% de los pacientes permanece libre de progresión.'],'os-m':['OS mediana por brazo (meses)','Mediana de supervivencia global estimada. Tiempo hasta que la mitad de la cohorte ha fallecido.']};document.getElementById('surv-title').textContent=m[t][0];document.getElementById('surv-sub').textContent=m[t][1];requestAnimationFrame(drawSurv);}
 
 function setResTab(t){RES_TAB=t;['outcomes','costs','ceplane'].forEach(id=>document.getElementById('stab-'+id).classList.toggle('active',id===t));const m={'outcomes':['Outcomes incrementales','AV y AV/AVAC descontados por brazo al horizonte del modelo.'],'costs':['Costos totales por brazo','Costo total descontado por brazo, desglosado en tratamiento y manejo por estado de salud.'],'ceplane':['Plano costo-efectividad','El punto muestra el diferencial incremental (ΔCosto vs. ΔAVAC). La recta es el umbral de disponibilidad a pagar del ISSL de Luvina.']};document.getElementById('res-title').textContent=m[t][0];document.getElementById('res-sub').textContent=m[t][1];requestAnimationFrame(drawRes);}
 
@@ -640,8 +640,16 @@ function draw(){if(SEC==='survival')drawSurv();else if(SEC==='results')drawRes()
 
 function setup(id){const cv=document.getElementById(id),w=cv.parentElement,dpr=window.devicePixelRatio||1,W=w.clientWidth,H=Math.max(w.clientHeight-78,120);cv.width=W*dpr;cv.height=H*dpr;cv.style.width=W+'px';cv.style.height=H+'px';const ctx=cv.getContext('2d');ctx.scale(dpr,dpr);ctx.clearRect(0,0,W,H);return{ctx,W,H};}
 
-function drawSurv(){const{ctx,W,H}=setup('cv-surv'),res=calcModel(),N=S.horiz*12,DISP_N=N*3,DISP_Y=S.horiz*3,PAD={t:22,r:20,b:38,l:46},pw=W-PAD.l-PAD.r,ph=H-PAD.t-PAD.b,tX=i=>PAD.l+(i/DISP_N)*pw,tY=v=>PAD.t+(1-v)*ph;
-// Extended display arrays (3x horizon, no cost tracking)
+function drawSurv(){const{ctx,W,H}=setup('cv-surv'),res=calcModel(),N=S.horiz*12,PAD={t:22,r:20,b:38,l:46},pw=W-PAD.l-PAD.r,ph=H-PAD.t-PAD.b;
+// Find how many months until the slowest OS curve (new arm, lowest lambda) drops to ≤5%
+// Use the slower of the two OS lambdas to determine range
+const slowLam_e=Math.min(S.efs_std,S.efs_new), slowLam_o=Math.min(S.os_std,S.os_new);
+let _pa=1,_pp=0,DISP_N=N;
+for(let m=1;m<=600;m++){const _p2=_pa*(1-Math.exp(-slowLam_e/12)),_pda=_pa*(1-Math.exp(-slowLam_o/12))*.3,_pdp=_pp*(1-Math.exp(-slowLam_o/12))*.9;_pa-=(_p2+_pda);_pp+=_p2-_pdp;_pa=Math.max(0,_pa);_pp=Math.max(0,_pp);if(_pa+_pp<=0.05){DISP_N=m+6;break;}DISP_N=m;}
+DISP_N=Math.max(DISP_N,N+12); // always show at least the model horizon + 1yr
+const DISP_Y=Math.round(DISP_N/12);
+const tX=i=>PAD.l+(i/DISP_N)*pw,tY=v=>PAD.t+(1-v)*ph;
+// Build display arrays over full DISP_N range
 function extSurv(lam_e,lam_o){let pa=1,pp=0;const se=[1],so=[1];for(let m=1;m<=DISP_N;m++){const p2=pa*(1-Math.exp(-lam_e/12)),pda=pa*(1-Math.exp(-lam_o/12))*.3,pdp=pp*(1-Math.exp(-lam_o/12))*.9;pa-=(p2+pda);pp+=p2-pdp;pa=Math.max(0,pa);pp=Math.max(0,pp);se.push(pa);so.push(pa+pp);}return{se,so};}
 const ext={std:extSurv(S.efs_std,S.os_std),new:extSurv(S.efs_new,S.os_new)};
 function ax(){ctx.strokeStyle='#EEEEF5';ctx.lineWidth=1;ctx.setLineDash([3,4]);for(let i=1;i<=5;i++){const y=PAD.t+i/5*ph;ctx.beginPath();ctx.moveTo(PAD.l,y);ctx.lineTo(PAD.l+pw,y);ctx.stroke();}ctx.setLineDash([]);ctx.strokeStyle='#CCC';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(PAD.l,PAD.t);ctx.lineTo(PAD.l,PAD.t+ph);ctx.lineTo(PAD.l+pw,PAD.t+ph);ctx.stroke();ctx.font='9px "Space Mono",monospace';ctx.fillStyle='#999';ctx.textAlign='center';const st=DISP_Y<=15?2:DISP_Y<=30?5:10;for(let y=0;y<=DISP_Y;y+=st)ctx.fillText(y+'a',PAD.l+(y/DISP_Y)*pw,PAD.t+ph+13);ctx.textAlign='right';for(let i=0;i<=5;i++)ctx.fillText((1-i/5).toFixed(1),PAD.l-5,PAD.t+i/5*ph+3);ctx.save();ctx.font='600 10px "Inter",sans-serif';ctx.fillStyle='#888';ctx.translate(11,PAD.t+ph/2);ctx.rotate(-Math.PI/2);ctx.textAlign='center';ctx.fillText('Probabilidad de supervivencia',0,0);ctx.restore();ctx.font='600 10px "Inter",sans-serif';ctx.fillStyle='#888';ctx.textAlign='center';ctx.fillText('Tiempo (años)',PAD.l+pw/2,PAD.t+ph+28);}

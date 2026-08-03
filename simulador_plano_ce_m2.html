@@ -841,7 +841,7 @@ canvas{display:block;position:absolute;top:0;left:0;width:100%;height:100%;}
       <div class="fs-cell"><div class="fs-lbl">Delta AV/AVAC</div><div class="fs-val" id="fb-dq">+1.50</div></div>
       <div class="fs-op">=</div>
       <div class="fs-cell res"><div class="fs-lbl">ICER</div><div class="fs-val" id="fb-icer">$246,667 / AV/AVAC</div></div>
-      <div class="fs-cell" id="fs-quad-cell"><div class="fs-lbl">Cuadrante</div><div class="fs-val" id="fb-quad" style="font-size:12px">NE: Mas caro, mas efectivo</div></div>
+      <div class="fs-cell" id="fs-quad-cell"><div class="fs-lbl">Cuadrante</div><div class="fs-val" id="fb-quad" style="font-size:12px">NE: Más caro, más efectivo</div></div>
     </div>
   </div>
 
@@ -930,12 +930,12 @@ canvas{display:block;position:absolute;top:0;left:0;width:100%;height:100%;}
         <canvas id="cv"></canvas>
       </div>
       <div class="legend">
-        <div class="li"><div class="ls" style="background:var(--cobalt2)"></div><div><b style="color:var(--cobalt2)">NE: Mas caro, mas efectivo</b><span>Decision por umbral WTP.</span></div></div>
-        <div class="li"><div class="ls" style="background:#1A7337"></div><div><b style="color:#1A7337">SE: Mas barato, mas efectivo</b><span>Dominante. Se adopta.</span></div></div>
-        <div class="li"><div class="ls" style="background:var(--red)"></div><div><b style="color:var(--red)">NO: Mas caro, menos efectivo</b><span>Dominado. Se rechaza.</span></div></div>
-        <div class="li"><div class="ls" style="background:var(--cobalt4)"></div><div><b style="color:var(--navy)">SO: Mas barato, menos efectivo</b><span>Compensacion. Deliberar.</span></div></div>
+        <div class="li"><div class="ls" style="background:var(--cobalt2)"></div><div><b style="color:var(--cobalt2)">NE: Más caro, más efectivo</b><span>Decisión por umbral WTP.</span></div></div>
+        <div class="li"><div class="ls" style="background:#1A7337"></div><div><b style="color:#1A7337">SE: Más barato, más efectivo</b><span>Dominante. Se adopta.</span></div></div>
+        <div class="li"><div class="ls" style="background:var(--red)"></div><div><b style="color:var(--red)">NO: Más caro, menos efectivo</b><span>Dominado. Se rechaza.</span></div></div>
+        <div class="li"><div class="ls" style="background:var(--cobalt4)"></div><div><b style="color:var(--navy)">SO: Más barato, menos efectivo</b><span>Compensación. Deliberar.</span></div></div>
       </div>
-      <div class="refl"><strong>Para reflexionar:</strong> Mueve el umbral WTP sin cambiar el ICER. En que punto el mismo resultado pasa de costo-efectivo a no costo-efectivo.</div>
+      <div class="refl"><strong>Para reflexionar:</strong> Mueve el umbral WTP sin cambiar el ICER. ¿En qué punto el mismo resultado pasa de costo-efectivo a no costo-efectivo?</div>
     </div>
 
 
@@ -944,8 +944,8 @@ canvas{display:block;position:absolute;top:0;left:0;width:100%;height:100%;}
   <!-- RESULT BAND — full width bottom -->
   <div class="result-band" id="bodyBand">
     <div class="rb-mid">
-      <div class="rb-title" id="rc-title">La decision depende del umbral</div>
-      <div class="rb-desc" id="rc-desc">La nueva tecnologia genera mayor beneficio a un costo adicional. La incorporacion depende de si el ICER esta por debajo del umbral del ISSL.</div>
+      <div class="rb-title" id="rc-title">La decisión depende del umbral</div>
+      <div class="rb-desc" id="rc-desc">La nueva tecnología genera mayor beneficio a un costo adicional. La incorporación depende de si el ICER está por debajo del umbral del ISSL.</div>
     </div>
     <div class="rb-right">
       <div class="rb-dec" id="rc-dec">Costo-efectivo al umbral del ISSL ($270,000 por AV/AVAC)</div>
@@ -993,30 +993,30 @@ const quad=(dC,dQ)=>{
 };
 
 const QD={
-  NE:{css:'q-ne',q:'NE: Mas caro, mas efectivo',
-    t:'La decision depende del umbral',
-    d:'La nueva tecnologia genera mayor beneficio en salud a un costo adicional. La incorporacion depende de si el ICER esta por debajo del umbral de disposicion a pagar del ISSL.',
+  NE:{css:'q-ne',q:'NE: Más caro, más efectivo',
+    t:'La decisión depende del umbral',
+    d:'La nueva tecnología genera mayor beneficio en salud a un costo adicional. La incorporación depende de si el ICER está por debajo del umbral de disposición a pagar del ISSL.',
     dec:(i,w)=>i<=w?'Costo-efectivo. ICER por debajo del umbral ('+fPl(w)+' por AV/AVAC)':'No costo-efectivo. ICER supera el umbral ('+fPl(w)+' por AV/AVAC)'},
-  SE:{css:'q-se',q:'SE: Mas barato, mas efectivo',
-    t:'Tecnologia dominante',
-    d:'La nueva tecnologia genera mayor beneficio Y tiene menor costo que el estandar de cuidado actual. No requiere comparacion con el umbral. La incorporacion esta directamente justificada.',
-    dec:()=>'Tecnologia dominante. Se incorpora sin necesidad de comparar con el umbral.'},
-  NW:{css:'q-nw',q:'NO: Mas caro, menos efectivo',
-    t:'Tecnologia dominada',
-    d:'La nueva tecnologia es mas cara Y menos efectiva que el estandar de cuidado actual. No existe justificacion economica para su adopcion bajo este analisis.',
-    dec:()=>'Tecnologia dominada. No se incorpora.'},
-  SW:{css:'q-sw',q:'SO: Mas barato, menos efectivo',
+  SE:{css:'q-se',q:'SE: Más barato, más efectivo',
+    t:'Tecnología dominante',
+    d:'La nueva tecnología genera mayor beneficio Y tiene menor costo que el estándar de cuidado actual. No requiere comparación con el umbral. La incorporación está directamente justificada.',
+    dec:()=>'Tecnología dominante. Se incorpora sin necesidad de comparar con el umbral.'},
+  NW:{css:'q-nw',q:'NO: Más caro, menos efectivo',
+    t:'Tecnología dominada',
+    d:'La nueva tecnología es más cara Y menos efectiva que el estándar de cuidado actual. No existe justificación económica para su adopción bajo este análisis.',
+    dec:()=>'Tecnología dominada. No se incorpora.'},
+  SW:{css:'q-sw',q:'SO: Más barato, menos efectivo',
     t:'Rechazo recomendado (GCEEE)',
-    d:'La nueva tecnologia genera menor beneficio clinico aunque tenga menor costo. La GCEEE recomienda rechazar: el ahorro no justifica una perdida de efectividad. Solo en contextos de recursos muy limitados y con deliberacion explicita podria considerarse.',
-    dec:()=>'Rechazo recomendado. La GCEEE no justifica aceptar perdida de efectividad por ahorro.'},
+    d:'La nueva tecnología genera menor beneficio clínico aunque tenga menor costo. La GCEEE recomienda rechazar: el ahorro no justifica una pérdida de efectividad. Solo en contextos de recursos muy limitados y con deliberación explícita podría considerarse.',
+    dec:()=>'Rechazo recomendado. La GCEEE no justifica aceptar pérdida de efectividad por ahorro.'},
   ZR:{css:'q-zr',q:'Sin diferencia incremental',
     t:'Sin diferencia detectable',
-    d:'No hay diferencia de costo ni de efectividad entre las alternativas. El ICER no esta definido.',
+    d:'No hay diferencia de costo ni de efectividad entre las alternativas. El ICER no está definido.',
     dec:()=>'Sin diferencia entre alternativas. ICER no definido.'},
-  CM:{css:'q-cm',q:'ΔEfectividad = 0: Analisis de minimizacion de costos',
-    t:'Minimizacion de costos aplicable',
-    d:'Efectividad incremental igual a cero. El metodo correcto es el analisis de minimizacion de costos (AMC): se comparan los costos de producir el mismo resultado clinico. Si el nuevo tratamiento es mas barato, se incorpora; si es mas caro, no se justifica.',
-    dec:(i,w,dC)=>dC<0?'Nuevo tratamiento mas barato con igual efectividad. AMC favorece la incorporacion.':dC>0?'Nuevo tratamiento mas caro con igual efectividad. AMC no justifica la incorporacion.':'Costos identicos. Equivalencia economica total.'}
+  CM:{css:'q-cm',q:'ΔEfectividad = 0: Análisis de minimización de costos',
+    t:'Minimización de costos aplicable',
+    d:'Efectividad incremental igual a cero. El método correcto es el análisis de minimización de costos (AMC): se comparan los costos de producir el mismo resultado clínico. Si el nuevo tratamiento es más barato, se incorpora; si es más caro, no se justifica.',
+    dec:(i,w,dC)=>dC<0?'Nuevo tratamiento más barato con igual efectividad. AMC favorece la incorporación.':dC>0?'Nuevo tratamiento más caro con igual efectividad. AMC no justifica la incorporación.':'Costos idénticos. Equivalencia económica total.'}
 };
 
 /* ── COLOURS PER QUADRANT ─────────────────────────── */
@@ -1223,13 +1223,13 @@ function update(){
   const tv=document.getElementById('ti-v');
   document.getElementById('ti-wtp').textContent=fPl(S.wtp)+' / AV/AVAC';
   document.getElementById('ti-icer').textContent=isFinite(icer)?fPl(icer)+' / AV/AVAC':'—';
-  if(q==='SE'){tv.textContent='Tecnologia dominante: no requiere umbral';tv.className='under'}
-  else if(q==='NW'){tv.textContent='Tecnologia dominada: no requiere umbral';tv.className='over'}
+  if(q==='SE'){tv.textContent='Tecnología dominante: no requiere umbral';tv.className='under'}
+  else if(q==='NW'){tv.textContent='Tecnología dominada: no requiere umbral';tv.className='over'}
   else if(q==='NE'&&isFinite(icer)){
     const d=S.wtp-icer;
     if(d>=0){tv.textContent=fPl(d)+' / AV/AVAC por debajo del umbral';tv.className='under'}
     else{tv.textContent=fPl(Math.abs(d))+' / AV/AVAC por encima del umbral';tv.className='over'}
-  }else{tv.textContent='Deliberacion institucional requerida';tv.className=''}
+  }else{tv.textContent='Deliberación institucional requerida';tv.className=''}
 
   draw();
 }

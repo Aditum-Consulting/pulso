@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Análisis de Sensibilidad · Módulo 6 · Pulso</title>
+<title>Análisis de sensibilidad (Módulo 6, Pulso)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -83,6 +83,12 @@ canvas{display:block;width:100%;flex:1;min-height:0}
 .bc:last-child{border-right:none}
 .bl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:3px}
 .bv{font-family:var(--font-ser);font-size:13px;color:var(--navy);line-height:1.45}
+
+/* nota de datos ficticios */
+.fic{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;margin-left:8px;padding:0;border:1px solid var(--cobalt4);border-radius:50%;background:transparent;color:var(--cobalt4);font-family:'Inter',system-ui,sans-serif;font-size:9.5px;font-weight:700;line-height:1;letter-spacing:0;text-transform:none;cursor:pointer;vertical-align:middle}
+.fic:hover,.fic:focus,.fic[aria-expanded="true"]{background:var(--cobalt2);border-color:var(--cobalt2);color:#fff;outline:none}
+.fic-pop{position:fixed;z-index:999;max-width:310px;background:var(--navy);color:#fff;font-family:'Inter',system-ui,sans-serif;font-size:10.5px;font-weight:400;line-height:1.55;letter-spacing:0;text-transform:none;padding:10px 13px;border-radius:6px;box-shadow:0 6px 20px rgba(1,6,93,.32);display:none}
+.fic-pop.on{display:block}
 </style>
 </head>
 <body>
@@ -427,7 +433,7 @@ canvas{display:block;width:100%;flex:1;min-height:0}
   </g>
 </svg>
 </div>
-  <div class="hdr-mod"><span class="hdr-sub">Módulo 6 · Evaluación económica</span></div>
+  <div class="hdr-mod"><span class="hdr-sub">Módulo 6, Evaluación económica<button type="button" class="fic" id="fic-btn" aria-expanded="false" aria-controls="fic-pop" aria-label="Nota sobre los datos">?</button></span></div>
   <span class="badge">Simulador</span>
 </header>
 
@@ -517,7 +523,7 @@ canvas{display:block;width:100%;flex:1;min-height:0}
   <!-- RIGHT -->
   <div class="centre">
     <div class="chart-area">
-      <div class="chart-title" id="chart-title">Diagrama de tornado — ICER</div>
+      <div class="chart-title" id="chart-title">Diagrama de tornado: ICER</div>
       <div class="chart-sub" id="chart-sub">El ICER combina costos (numerador) y efectividad (denominador). Su incertidumbre viene de ambos lados: los parámetros económicos mueven el numerador; los clínicos, el denominador.</div>
       <canvas id="cv"></canvas>
     </div>
@@ -556,7 +562,7 @@ const PARAMS = [
 const OUTCOMES = {
   cost: {
     base: 2094000,
-    title: 'Diagrama de tornado — Costos incrementales',
+    title: 'Diagrama de tornado: Costos incrementales',
     sub: 'Qué parámetros mueven el costo total del tratamiento. Los parámetros de efecto clínico (HR, utilidad) apenas aparecen aquí.',
     ribbonBaseLabel: 'Costo incremental base',
     ribbonBaseVal: '$2,094,000',
@@ -581,7 +587,7 @@ const OUTCOMES = {
   },
   ly: {
     base: 7.80,
-    title: 'Diagrama de tornado — AVACs ganados',
+    title: 'Diagrama de tornado: AVACs ganados',
     sub: 'Qué parámetros mueven la efectividad del tratamiento. Los parámetros económicos (precio, hospitalización) apenas aparecen aquí.',
     ribbonBaseLabel: 'AVACs base',
     ribbonBaseVal: '7.80 AVACs',
@@ -601,7 +607,7 @@ const OUTCOMES = {
   },
   icer: {
     base: 268400,
-    title: 'Diagrama de tornado — ICER',
+    title: 'Diagrama de tornado: ICER',
     sub: 'El ICER combina costos (numerador) y efectividad (denominador). Su incertidumbre proviene de ambos lados: los parámetros económicos mueven el numerador; los clínicos, el denominador.',
     ribbonBaseLabel: 'ICER base',
     ribbonBaseVal: '$268,400/AVAC',
@@ -612,7 +618,7 @@ const OUTCOMES = {
     formatRange: (lo, hi) => '$'+Math.round(lo/1000)+'K – $'+Math.round(hi/1000)+'K',
     slot4fn: (impacts, wtp) => {
       const n = impacts.filter(d => d.high > wtp).length;
-      return n > 0 ? 'Sí — en '+n+' parámetro'+(n>1?'s':'') : 'No — ICER estable';
+      return n > 0 ? 'Sí, en '+n+' parámetro'+(n>1?'s':'') : 'No, ICER estable';
     },
     multipliers: { precio: 1.5, hr: 1.3, hosp: 0.6, util: 0.7, disc: 0.5 },
     interpretFn: (top, S, impacts, wtp) => {
@@ -742,7 +748,7 @@ function drawTornado(ctx, W, H, impacts) {
     ctx.fillText(cfg.formatX(v), x, PAD.t+ph+14);
   });
   ctx.font='600 10px "Inter",sans-serif'; ctx.fillStyle='#01065D';
-  ctx.fillText(cfg.title.replace('Diagrama de tornado — ',''), PAD.l+pw/2, PAD.t+ph+30);
+  ctx.fillText(cfg.title.replace('Diagrama de tornado: ',''), PAD.l+pw/2, PAD.t+ph+30);
   ctx.restore();
 }
 
@@ -814,6 +820,25 @@ else window.addEventListener('resize', () => draw());
 
 // ─── INIT ──────────────────────────────────────────────────────────────────────
 update();
+</script>
+<div class="fic-pop" id="fic-pop" role="note">Los parámetros, los precios y las cifras de este simulador son ficticios y tienen propósito exclusivamente pedagógico.</div>
+<script>
+(function(){
+  var b=document.getElementById('fic-btn'),p=document.getElementById('fic-pop');
+  if(!b||!p)return;
+  function place(){
+    var r=b.getBoundingClientRect();
+    var l=Math.min(r.left,window.innerWidth-p.offsetWidth-10);
+    p.style.left=Math.max(10,l)+'px';
+    p.style.top=(r.bottom+8)+'px';
+  }
+  function open(){p.classList.add('on');b.setAttribute('aria-expanded','true');place();}
+  function close(){p.classList.remove('on');b.setAttribute('aria-expanded','false');}
+  b.addEventListener('click',function(e){e.stopPropagation();p.classList.contains('on')?close():open();});
+  document.addEventListener('click',function(e){if(e.target!==b&&!p.contains(e.target))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  window.addEventListener('resize',function(){if(p.classList.contains('on'))place();});
+})();
 </script>
 </body>
 </html>

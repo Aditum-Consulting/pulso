@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Comparador de Costos · Módulo 5 · Pulso</title>
+<title>Comparador de costos (Módulo 5, Pulso)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -138,6 +138,12 @@ canvas{position:absolute;inset:0;width:100%;height:100%}
 .band-lbl{font-size:7.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:2px}
 .band-val{font-family:var(--font-ser);font-size:12px;color:var(--navy);line-height:1.35}
 .txt-ok{color:var(--green)}.txt-warn{color:var(--red)}
+
+/* nota de datos ficticios */
+.fic{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;margin-left:8px;padding:0;border:1px solid var(--cobalt4);border-radius:50%;background:transparent;color:var(--cobalt4);font-family:'Inter',system-ui,sans-serif;font-size:9.5px;font-weight:700;line-height:1;letter-spacing:0;text-transform:none;cursor:pointer;vertical-align:middle}
+.fic:hover,.fic:focus,.fic[aria-expanded="true"]{background:var(--cobalt2);border-color:var(--cobalt2);color:#fff;outline:none}
+.fic-pop{position:fixed;z-index:999;max-width:310px;background:var(--navy);color:#fff;font-family:'Inter',system-ui,sans-serif;font-size:10.5px;font-weight:400;line-height:1.55;letter-spacing:0;text-transform:none;padding:10px 13px;border-radius:6px;box-shadow:0 6px 20px rgba(1,6,93,.32);display:none}
+.fic-pop.on{display:block}
 </style>
 </head>
 <body>
@@ -474,14 +480,14 @@ canvas{position:absolute;inset:0;width:100%;height:100%}
   </g>
   </svg>
   </div>
-  <div class="hdr-mod"><span class="hdr-sub">Módulo 5 · Costos en la evaluación económica</span></div>
+  <div class="hdr-mod"><span class="hdr-sub">Módulo 5, Costos en la evaluación económica<button type="button" class="fic" id="fic-btn" aria-expanded="false" aria-controls="fic-pop" aria-label="Nota sobre los datos">?</button></span></div>
   <span class="hdrbadge">Simulador</span>
 </header>
 
 <div class="ribbon">
   <div class="rc"><div class="rl">Perspectiva activa</div><div class="rv" id="rb-persp">Institucional</div></div>
-  <div class="rc"><div class="rl">Total anual · Brazo A</div><div class="rv" id="rb-a">—</div></div>
-  <div class="rc"><div class="rl">Total anual · Brazo B</div><div class="rv" id="rb-b">—</div></div>
+  <div class="rc"><div class="rl">Total anual, Brazo A</div><div class="rv" id="rb-a">—</div></div>
+  <div class="rc"><div class="rl">Total anual, Brazo B</div><div class="rv" id="rb-b">—</div></div>
   <div class="rc hi"><div class="rl">Costo mínimo</div><div class="rv" id="rb-win">—</div></div>
 </div>
 
@@ -507,8 +513,8 @@ canvas{position:absolute;inset:0;width:100%;height:100%}
     <div class="left-inner">
 
       <div class="sc-block">
-        <div class="sc-title">Adenocarcinoma gástrico avanzado · ISES de Luvina</div>
-        <div class="sc-sub">Brazo A: Zorbiplatino-L IV cada 2 semanas (bomba portátil 46h). Brazo B: LUVOX — Luvinitabina oral 14 días + Oxaluvino IV cada 3 semanas. Metaanálisis en red (4 ensayos, n=1,840) sin diferencia en SG a 12 meses. Se comparan los costos totales bajo distintas perspectivas.</div>
+        <div class="sc-title">Adenocarcinoma gástrico avanzado, ISES de Luvina</div>
+        <div class="sc-sub">Brazo A: Zorbiplatino-L IV cada 2 semanas (bomba portátil 46h). Brazo B: LUVOX, Luvinitabina oral 14 días + Oxaluvino IV cada 3 semanas. Metaanálisis en red (4 ensayos, n=1,840) sin diferencia en SG a 12 meses. Se comparan los costos totales bajo distintas perspectivas.</div>
         <div class="sc-note">Modifica costos unitarios y frecuencias. Los badges muestran la fuente de cada renglón.</div>
       </div>
 
@@ -548,7 +554,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%}
         <div class="chk-box"><div class="chk-tick"></div></div>
         <div class="chk-info">
           <div class="chk-name">Indirectos del paciente</div>
-          <div class="chk-desc">Ausentismo y presentismo laboral · STL</div>
+          <div class="chk-desc">Ausentismo y presentismo laboral, STL</div>
           <div class="persp-tags">
             <span class="ptag ptag-no">Sec. público ✗</span>
             <span class="ptag ptag-var">Social ~</span>
@@ -562,7 +568,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%}
         <div class="chk-box"><div class="chk-tick"></div></div>
         <div class="chk-info">
           <div class="chk-name">Del cuidador</div>
-          <div class="chk-desc">Tiempo informal · IEL (proxy, bien sustituto)</div>
+          <div class="chk-desc">Tiempo informal, IEL (proxy, bien sustituto)</div>
           <div class="persp-tags">
             <span class="ptag ptag-no">Sec. público ✗</span>
             <span class="ptag ptag-var">Social ~</span>
@@ -573,7 +579,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%}
       <div class="persp-tag" style="font-size:8.5px;color:#666;line-height:1.5;margin-top:4px">
         <strong style="font-size:9px">✓</strong> incluido &nbsp;
         <strong style="font-size:9px">✗</strong> excluido &nbsp;
-        <strong style="font-size:9px;color:#854D0E">~</strong> varía según guía · CSG/GCEEE (2023), Sittimart et al. (2024)
+        <strong style="font-size:9px;color:#854D0E">~</strong> varía según guía, CSG/GCEEE (2023), Sittimart et al. (2024)
       </div>
 
       <div class="persp-tag">Perspectiva activa: <strong id="persp-txt">Institucional</strong></div>
@@ -584,8 +590,8 @@ canvas{position:absolute;inset:0;width:100%;height:100%}
         <div class="src-row"><span class="sb sb-DRG">DRG</span><span style="font-size:9px;color:#444">DRG-ISES (costo real episodio)</span></div>
         <div class="src-row"><span class="sb sb-LICIT">LICIT</span><span style="font-size:9px;color:#444">Licitación consolidada ISES</span></div>
         <div class="src-row"><span class="sb sb-PLM">PLM</span><span style="font-size:9px;color:#444">PLM-Luvina (precio de lista)</span></div>
-        <div class="src-row"><span class="sb sb-IEL">IEL ·proxy</span><span style="font-size:9px;color:#444">Inst. de Estadísticas Luvina</span></div>
-        <div class="src-row"><span class="sb sb-STL">STL ·proxy</span><span style="font-size:9px;color:#444">Sec. del Trabajo de Luvina</span></div>
+        <div class="src-row"><span class="sb sb-IEL">IEL proxy</span><span style="font-size:9px;color:#444">Inst. de Estadísticas de Luvina</span></div>
+        <div class="src-row"><span class="sb sb-STL">STL proxy</span><span style="font-size:9px;color:#444">Sec. del Trabajo de Luvina</span></div>
       </div>
 
     </div>
@@ -600,8 +606,8 @@ canvas{position:absolute;inset:0;width:100%;height:100%}
           <tr>
             <th rowspan="2" style="min-width:128px">Renglón de costo</th>
             <th rowspan="2" style="text-align:center">Fuente</th>
-            <th colspan="3" class="arm-a" style="text-align:center;border-bottom:1px solid #C5D9F7">Brazo A · Zorbiplatino-L IV (biweekly)</th>
-            <th colspan="3" class="arm-b" style="text-align:center;border-bottom:1px solid #A7D9C0">Brazo B · LUVOX oral + IV (c/3 sem)</th>
+            <th colspan="3" class="arm-a" style="text-align:center;border-bottom:1px solid #C5D9F7">Brazo A, Zorbiplatino-L IV (biweekly)</th>
+            <th colspan="3" class="arm-b" style="text-align:center;border-bottom:1px solid #A7D9C0">Brazo B, LUVOX oral + IV (c/3 sem)</th>
           </tr>
           <tr>
             <th class="arm-a" style="text-align:right">Costo unitario</th>
@@ -618,7 +624,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%}
     </div>
 
     <div class="chart-sec">
-      <div class="chart-hd">Costo total por brazo — desglose por categoría</div>
+      <div class="chart-hd">Costo total por brazo: desglose por categoría</div>
       <div class="chart-sub">Activa categorías de izquierda para ver cómo crece cada barra y en qué punto se invierte el resultado.</div>
       <div class="canvas-wrap"><canvas id="cv"></canvas></div>
     </div>
@@ -693,7 +699,7 @@ const SRC_META = {
   DRG:  { label:'DRG',   full:'DRG-ISES (costo real episodio)',proxy:false },
   LICIT:{ label:'LICIT', full:'Licitación consolidada ISES',   proxy:false },
   PLM:  { label:'PLM',   full:'PLM-Luvina (precio de lista)',  proxy:false },
-  IEL:  { label:'IEL',   full:'Inst. de Estadísticas Luvina', proxy:true  },
+  IEL:  { label:'IEL',   full:'Inst. de Estadísticas de Luvina', proxy:true  },
   STL:  { label:'STL',   full:'Sec. del Trabajo de Luvina',   proxy:true  },
 };
 
@@ -745,7 +751,7 @@ function getPerspective() {
 function sbHTML(src) {
   if (!src) return '<span style="color:#CCC;font-size:8.5px">—</span>';
   const m = SRC_META[src];
-  return `<span class="sb sb-${src}" title="${m.full}">${m.label}${m.proxy?' ·proxy':''}</span>`;
+  return `<span class="sb sb-${src}" title="${m.full}">${m.label}${m.proxy?' proxy':''}</span>`;
 }
 
 function renderTable(key) {
@@ -784,7 +790,7 @@ function renderTable(key) {
 
   const tA = tabTotal(key,'a'), tB = tabTotal(key,'b');
   document.getElementById('ct-foot').innerHTML = `<tr class="tot-row">
-    <td class="tot-lbl">Total · ${tab.label}</td><td></td><td></td>
+    <td class="tot-lbl">Total, ${tab.label}</td><td></td><td></td>
     <td style="font-size:8px;color:var(--gray);text-align:right;font-family:var(--font-mon)">subtotal A</td>
     <td class="tot-amt">${fMXN(tA)}</td>
     <td></td>
@@ -832,7 +838,7 @@ function updateRibbon() {
   document.getElementById('rb-a').textContent = fMXN(tA);
   document.getElementById('rb-b').textContent = fMXN(tB);
   document.getElementById('rb-win').innerHTML =
-    `<span class="${inv?'warn':'ok'}">Brazo ${winner} · −${fMXN(delta)}</span>`;
+    `<span class="${inv?'warn':'ok'}">Brazo ${winner}, −${fMXN(delta)}</span>`;
 
   // Tab hints
   Object.keys(TABS).forEach(k => {
@@ -842,9 +848,9 @@ function updateRibbon() {
       : '(excluida)';
   });
 
-  const winName = inv ? 'A · Zorbiplatino-L' : 'B · LUVOX';
+  const winName = inv ? 'A, Zorbiplatino-L' : 'B, LUVOX';
   document.getElementById('b-read').innerHTML =
-    `<span class="${inv?'txt-warn':'txt-ok'}">Brazo ${winName}</span> presenta el costo menor por <strong>${fMXN(delta)}</strong> — perspectiva ${getPerspective().toLowerCase()}.`;
+    `<span class="${inv?'txt-warn':'txt-ok'}">Brazo ${winName}</span> presenta el costo menor por <strong>${fMXN(delta)}</strong>, perspectiva ${getPerspective().toLowerCase()}.`;
   document.getElementById('b-hint').textContent = getHint();
 }
 
@@ -1013,6 +1019,25 @@ function toggleCat(key) {
 
 new ResizeObserver(() => draw()).observe(document.querySelector('.canvas-wrap'));
 switchTab('dm');
+</script>
+<div class="fic-pop" id="fic-pop" role="note">Luvina es un estado ficticio creado para este diplomado. Sus instituciones, los fármacos, los estudios y las cifras de este simulador son ficticios y tienen propósito exclusivamente pedagógico.</div>
+<script>
+(function(){
+  var b=document.getElementById('fic-btn'),p=document.getElementById('fic-pop');
+  if(!b||!p)return;
+  function place(){
+    var r=b.getBoundingClientRect();
+    var l=Math.min(r.left,window.innerWidth-p.offsetWidth-10);
+    p.style.left=Math.max(10,l)+'px';
+    p.style.top=(r.bottom+8)+'px';
+  }
+  function open(){p.classList.add('on');b.setAttribute('aria-expanded','true');place();}
+  function close(){p.classList.remove('on');b.setAttribute('aria-expanded','false');}
+  b.addEventListener('click',function(e){e.stopPropagation();p.classList.contains('on')?close():open();});
+  document.addEventListener('click',function(e){if(e.target!==b&&!p.contains(e.target))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  window.addEventListener('resize',function(){if(p.classList.contains('on'))place();});
+})();
 </script>
 </body>
 </html>

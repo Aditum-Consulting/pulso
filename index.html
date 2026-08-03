@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simuladores — Pulso · Diplomado en Economía de la Salud</title>
+<title>Simuladores (Pulso, Diplomado en Economía de la Salud)</title>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -30,7 +30,7 @@ body { font-family: var(--font-san); background: #F5F7FC; color: #111; -webkit-f
 .context-box {
   background: #fff;
   border-radius: 8px;
-  border-left: 4px solid var(--cobalt);
+  border: 1px solid var(--blue-200);
   padding: 16px 20px;
   margin-bottom: 32px;
   box-shadow: 0 1px 4px rgba(0,0,0,.05);
@@ -600,7 +600,7 @@ body { font-family: var(--font-san); background: #F5F7FC; color: #111; -webkit-f
 <div class="content">
 
   <div class="context-box">
-    <p>Los simuladores de este diplomado utilizan el <strong>Estado de Luvina</strong> como universo pedagógico ficticio. Luvina es un estado imaginario que replica la estructura del sistema de salud mexicano: cuenta con su propio instituto de seguridad social (<strong>ISES</strong>), secretaría de salud (<strong>SSAL</strong>), comité de evaluación (<strong>CISAM-Luvina</strong>) y sistema de financiamiento hospitalario (<strong>DRG-ISES</strong>). Todos los fármacos, estudios e instituciones que aparecen en los simuladores son ficticios y tienen propósito exclusivamente pedagógico.</p>
+    <p>Los simuladores utilizan el <strong>Estado de Luvina</strong> como universo pedagógico ficticio. Luvina es un estado imaginario que replica la estructura del sistema de salud mexicano: cuenta con su propio Instituto de Seguridad Social de Luvina (<strong>ISES</strong>), Instituto de Salud del Estado de Luvina (<strong>ISSL</strong>), Secretaría de Salud de Luvina (<strong>SSAL</strong>), Comité de Evaluación (<strong>CISAM-Luvina</strong>) y sistema de financiamiento hospitalario (<strong>DRG-ISES</strong>). Todos los fármacos, estudios e instituciones que aparecen en los simuladores son ficticios y tienen propósito exclusivamente pedagógico.</p>
     <p>La unidad de efectividad es el <strong>AV/AVAC</strong> (años de vida / años de vida ajustados por calidad). El umbral de disposición a pagar por defecto es <strong>$260,000 MXN/AV/AVAC</strong>, equivalente a 1× el PIB per cápita de Luvina.</p>
   </div>
 
@@ -608,45 +608,59 @@ body { font-family: var(--font-san); background: #F5F7FC; color: #111; -webkit-f
 
   <div class="grid">
 
+    <a class="card" href="m1-costo-oportunidad.html" target="_blank">
+      <div class="card-mod">Módulo 1</div>
+      <div class="card-title">Costo de oportunidad</div>
+      <div class="card-desc">La brecha de recursos de México frente a la OCDE con datos reales del Banco Mundial, 3 ejemplos anclados en la literatura y la elección entre jeringas prellenadas y viales en un hospital del ISES.</div>
+      <div class="card-footer"><span class="card-badge">Simulador</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card" href="m2-eleccion-diseno.html" target="_blank">
+      <div class="card-mod">Módulo 2</div>
+      <div class="card-title">Elegir el diseño de evaluación</div>
+      <div class="card-desc">5 preguntas guían la elección entre los 6 diseños de evaluación económica, con las barreras del ACB, ejemplos publicados y casos de Luvina para clasificar.</div>
+      <div class="card-footer"><span class="card-badge">Simulador</span><span class="card-arrow">→</span></div>
+    </a>
+
     <a class="card" href="simulador_plano_ce_m2.html" target="_blank">
       <div class="card-mod">Módulo 2</div>
       <div class="card-title">Plano de costo-efectividad</div>
-      <div class="card-desc">Explora el plano CE con controles de DAP y PIB per cápita. Incluye casos especiales para minimización de costos y orientación GCEEE en el cuadrante SW.</div>
+      <div class="card-desc">Los 4 cuadrantes del plano de costo-efectividad, el umbral de disposición a pagar del ISSL y el caso de minimización de costos cuando la diferencia de efectividad es cero.</div>
       <div class="card-footer"><span class="card-badge">Simulador</span><span class="card-arrow">→</span></div>
     </a>
 
     <a class="card" href="m4-forest-plot.html" target="_blank">
       <div class="card-mod">Módulo 4</div>
       <div class="card-title">Forest plot interactivo</div>
-      <div class="card-desc">Meta-análisis con I², efectos fijos y aleatorios. Activa o excluye estudios del universo Luvina: CUMBRE, ARCO, FULGOR, BRILLO y VISTA-A.</div>
+      <div class="card-desc">Metaanálisis con efectos fijos y aleatorios, el peso de cada ensayo en el estimado combinado y la heterogeneidad medida con I².</div>
       <div class="card-footer"><span class="card-badge">Simulador</span><span class="card-arrow">→</span></div>
     </a>
 
     <a class="card" href="m5-supuestos-costeo.html" target="_blank">
       <div class="card-mod">Módulo 5</div>
       <div class="card-title">Supuestos de costeo</div>
-      <div class="card-desc">Microcosteo con perspectivas según CSG/GCEEE. Gráfica de barras apiladas con arco de inversión entre perspectivas al incluir costos del cuidador.</div>
+      <div class="card-desc">Microcosteo de 2 esquemas oncológicos bajo las perspectivas de la GCEEE, donde incluir los costos del cuidador invierte cuál brazo resulta más barato.</div>
       <div class="card-footer"><span class="card-badge">Simulador</span><span class="card-arrow">→</span></div>
     </a>
 
     <a class="card" href="m6-tornado.html" target="_blank">
       <div class="card-mod">Módulo 6</div>
       <div class="card-title">Diagrama de tornado</div>
-      <div class="card-desc">Análisis de sensibilidad con selector de resultado: Costos, AVACs o ICER. Colores fijos por parámetro y línea de umbral DAP en la vista de ICER.</div>
+      <div class="card-desc">Análisis de sensibilidad determinista sobre costos, AVACs e ICER, donde el ranking de parámetros influyentes cambia según el resultado que se mire.</div>
       <div class="card-footer"><span class="card-badge">Simulador</span><span class="card-arrow">→</span></div>
     </a>
 
     <a class="card" href="m7-bim-v4.html" target="_blank">
       <div class="card-mod">Módulo 7</div>
       <div class="card-title">Modelo de impacto presupuestal</div>
-      <div class="card-desc">BIM completo para diabetes tipo 2 en Luvina. Funnel de pacientes, curvas de adopción, complicaciones y resultados en cascada (waterfall).</div>
+      <div class="card-desc">Impacto presupuestal de Velonex en diabetes tipo 2 para el ISSL, desde la población elegible hasta el efecto neto de los ahorros en complicaciones.</div>
       <div class="card-footer"><span class="card-badge">Simulador</span><span class="card-arrow">→</span></div>
     </a>
 
     <a class="card" href="m9-cea-completo.html" target="_blank">
       <div class="card-mod">Módulo 9</div>
       <div class="card-title">Análisis de costo-efectividad</div>
-      <div class="card-desc">CEA para cáncer de próstata resistente a castración en Luvina. Modelo de Markov de dos estados con distribuciones exponenciales de supervivencia y descuento.</div>
+      <div class="card-desc">Modelo de Markov de 2 estados para cáncer de próstata resistente a castración, con supervivencia exponencial, descuento y decisión contra el umbral del ISSL.</div>
       <div class="card-footer"><span class="card-badge">Simulador</span><span class="card-arrow">→</span></div>
     </a>
 
@@ -655,7 +669,7 @@ body { font-family: var(--font-san); background: #F5F7FC; color: #111; -webkit-f
 </div>
 
 <footer class="footer">
-  <span class="footer-text">Pulso · Diplomado en Economía de la Salud · &copy; 2025 Aditum Consulting Group</span>
+  <span class="footer-text">Pulso, Diplomado en Economía de la Salud. &copy; 2026 Aditum Consulting Group</span>
   <a class="footer-contact" href="mailto:pulso@aditumconsulting.com">pulso@aditumconsulting.com</a>
 </footer>
 

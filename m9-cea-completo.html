@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modelo de Costo-Efectividad · Módulo 9 · Pulso</title>
+<title>Modelo de costo-efectividad (Módulo 9, Pulso)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -96,6 +96,12 @@ canvas{display:block;width:100%;flex:1;min-height:0}
 .bv.icer-val{font-family:var(--font-mon);font-size:18px;font-weight:700}
 .bv.ce-ok{color:#166534}
 .bv.ce-no{color:var(--red)}
+
+/* nota de datos ficticios */
+.fic{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;margin-left:8px;padding:0;border:1px solid var(--cobalt4);border-radius:50%;background:transparent;color:var(--cobalt4);font-family:'Inter',system-ui,sans-serif;font-size:9.5px;font-weight:700;line-height:1;letter-spacing:0;text-transform:none;cursor:pointer;vertical-align:middle}
+.fic:hover,.fic:focus,.fic[aria-expanded="true"]{background:var(--cobalt2);border-color:var(--cobalt2);color:#fff;outline:none}
+.fic-pop{position:fixed;z-index:999;max-width:310px;background:var(--navy);color:#fff;font-family:'Inter',system-ui,sans-serif;font-size:10.5px;font-weight:400;line-height:1.55;letter-spacing:0;text-transform:none;padding:10px 13px;border-radius:6px;box-shadow:0 6px 20px rgba(1,6,93,.32);display:none}
+.fic-pop.on{display:block}
 </style>
 </head>
 <body>
@@ -434,7 +440,7 @@ canvas{display:block;width:100%;flex:1;min-height:0}
   </g>
     </svg>
   </div>
-  <div class="hdr-mod"><span class="hdr-sub">Módulo 9 · Modelo de costo-efectividad</span></div>
+  <div class="hdr-mod"><span class="hdr-sub">Módulo 9, Modelo de costo-efectividad<button type="button" class="fic" id="fic-btn" aria-expanded="false" aria-controls="fic-pop" aria-label="Nota sobre los datos">?</button></span></div>
   <span class="badge">Simulador</span>
 </header>
 
@@ -692,6 +698,25 @@ const slM={'efs-std':['efs_std',parseFloat],'efs-new':['efs_new',parseFloat],'os
 Object.entries(slM).forEach(([id,[k,p]])=>{const el=document.getElementById('sl-'+id);if(el)el.addEventListener('input',function(){S[k]=p(this.value);update();});});
 const cw=document.querySelector('.chart-area');if(window.ResizeObserver)new ResizeObserver(()=>draw()).observe(cw);else window.addEventListener('resize',()=>draw());
 update();
+</script>
+<div class="fic-pop" id="fic-pop" role="note">Luvina es un estado ficticio creado para este diplomado. Sus instituciones, los fármacos, los estudios y las cifras de este simulador son ficticios y tienen propósito exclusivamente pedagógico.</div>
+<script>
+(function(){
+  var b=document.getElementById('fic-btn'),p=document.getElementById('fic-pop');
+  if(!b||!p)return;
+  function place(){
+    var r=b.getBoundingClientRect();
+    var l=Math.min(r.left,window.innerWidth-p.offsetWidth-10);
+    p.style.left=Math.max(10,l)+'px';
+    p.style.top=(r.bottom+8)+'px';
+  }
+  function open(){p.classList.add('on');b.setAttribute('aria-expanded','true');place();}
+  function close(){p.classList.remove('on');b.setAttribute('aria-expanded','false');}
+  b.addEventListener('click',function(e){e.stopPropagation();p.classList.contains('on')?close():open();});
+  document.addEventListener('click',function(e){if(e.target!==b&&!p.contains(e.target))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  window.addEventListener('resize',function(){if(p.classList.contains('on'))place();});
+})();
 </script>
 </body>
 </html>

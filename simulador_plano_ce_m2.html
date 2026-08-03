@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plano CE · Módulo 2 · Pulso</title>
+<title>Plano de costo-efectividad (Módulo 2, Pulso)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -477,7 +477,13 @@ canvas{display:block;position:absolute;top:0;left:0;width:100%;height:100%;}
 .q-sw .q-sw 
 .q-zr .result-band{border-top-color:var(--cobalt5)}
 .q-zr .q-zr .q-cm .result-band{border-top-color:#888}
-.q-cm .q-cm </style>
+.q-cm .q-cm 
+/* nota de datos ficticios */
+.fic{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;margin-left:8px;padding:0;border:1px solid var(--cobalt4);border-radius:50%;background:transparent;color:var(--cobalt4);font-family:'Inter',system-ui,sans-serif;font-size:9.5px;font-weight:700;line-height:1;letter-spacing:0;text-transform:none;cursor:pointer;vertical-align:middle}
+.fic:hover,.fic:focus,.fic[aria-expanded="true"]{background:var(--cobalt2);border-color:var(--cobalt2);color:#fff;outline:none}
+.fic-pop{position:fixed;z-index:999;max-width:310px;background:var(--navy);color:#fff;font-family:'Inter',system-ui,sans-serif;font-size:10.5px;font-weight:400;line-height:1.55;letter-spacing:0;text-transform:none;padding:10px 13px;border-radius:6px;box-shadow:0 6px 20px rgba(1,6,93,.32);display:none}
+.fic-pop.on{display:block}
+</style>
 </head>
 <body>
 <div class="shell">
@@ -822,7 +828,7 @@ canvas{display:block;position:absolute;top:0;left:0;width:100%;height:100%;}
 </svg>
     </div>
     <div class="hdr-mod">
-      <span class="hdr-sub">Módulo 2 · Fundamentos de evaluación económica</span>
+      <span class="hdr-sub">Módulo 2, Fundamentos de evaluación económica<button type="button" class="fic" id="fic-btn" aria-expanded="false" aria-controls="fic-pop" aria-label="Nota sobre los datos">?</button></span>
     </div>
     <span class="hdr-badge">Simulador interactivo</span>
   </header>
@@ -835,7 +841,7 @@ canvas{display:block;position:absolute;top:0;left:0;width:100%;height:100%;}
       <div class="fs-cell"><div class="fs-lbl">Delta AV/AVAC</div><div class="fs-val" id="fb-dq">+1.50</div></div>
       <div class="fs-op">=</div>
       <div class="fs-cell res"><div class="fs-lbl">ICER</div><div class="fs-val" id="fb-icer">$246,667 / AV/AVAC</div></div>
-      <div class="fs-cell" id="fs-quad-cell"><div class="fs-lbl">Cuadrante</div><div class="fs-val" id="fb-quad" style="font-size:12px">NE — Mas caro, mas efectivo</div></div>
+      <div class="fs-cell" id="fs-quad-cell"><div class="fs-lbl">Cuadrante</div><div class="fs-val" id="fb-quad" style="font-size:12px">NE: Mas caro, mas efectivo</div></div>
     </div>
   </div>
 
@@ -924,10 +930,10 @@ canvas{display:block;position:absolute;top:0;left:0;width:100%;height:100%;}
         <canvas id="cv"></canvas>
       </div>
       <div class="legend">
-        <div class="li"><div class="ls" style="background:var(--cobalt2)"></div><div><b style="color:var(--cobalt2)">NE — Mas caro, mas efectivo</b><span>Decision por umbral WTP.</span></div></div>
-        <div class="li"><div class="ls" style="background:#1A7337"></div><div><b style="color:#1A7337">SE — Mas barato, mas efectivo</b><span>Dominante. Se adopta.</span></div></div>
-        <div class="li"><div class="ls" style="background:var(--red)"></div><div><b style="color:var(--red)">NO — Mas caro, menos efectivo</b><span>Dominado. Se rechaza.</span></div></div>
-        <div class="li"><div class="ls" style="background:var(--cobalt4)"></div><div><b style="color:var(--navy)">SO — Mas barato, menos efectivo</b><span>Compensacion. Deliberar.</span></div></div>
+        <div class="li"><div class="ls" style="background:var(--cobalt2)"></div><div><b style="color:var(--cobalt2)">NE: Mas caro, mas efectivo</b><span>Decision por umbral WTP.</span></div></div>
+        <div class="li"><div class="ls" style="background:#1A7337"></div><div><b style="color:#1A7337">SE: Mas barato, mas efectivo</b><span>Dominante. Se adopta.</span></div></div>
+        <div class="li"><div class="ls" style="background:var(--red)"></div><div><b style="color:var(--red)">NO: Mas caro, menos efectivo</b><span>Dominado. Se rechaza.</span></div></div>
+        <div class="li"><div class="ls" style="background:var(--cobalt4)"></div><div><b style="color:var(--navy)">SO: Mas barato, menos efectivo</b><span>Compensacion. Deliberar.</span></div></div>
       </div>
       <div class="refl"><strong>Para reflexionar:</strong> Mueve el umbral WTP sin cambiar el ICER. En que punto el mismo resultado pasa de costo-efectivo a no costo-efectivo.</div>
     </div>
@@ -944,8 +950,8 @@ canvas{display:block;position:absolute;top:0;left:0;width:100%;height:100%;}
     <div class="rb-right">
       <div class="rb-dec" id="rc-dec">Costo-efectivo al umbral del ISSL ($270,000 por AV/AVAC)</div>
       <div class="rb-thresh" id="tstrip">
-        Umbral <strong id="ti-wtp">$260,000 / AV/AVAC</strong> ·
-        ICER <strong id="ti-icer">$246,667 / AV/AVAC</strong> ·
+        Umbral <strong id="ti-wtp">$260,000 / AV/AVAC</strong>,
+        ICER <strong id="ti-icer">$246,667 / AV/AVAC</strong>,
         <span id="ti-v" class="under">$23,333 por debajo</span>
       </div>
     </div>
@@ -987,19 +993,19 @@ const quad=(dC,dQ)=>{
 };
 
 const QD={
-  NE:{css:'q-ne',q:'NE — Mas caro, mas efectivo',
+  NE:{css:'q-ne',q:'NE: Mas caro, mas efectivo',
     t:'La decision depende del umbral',
     d:'La nueva tecnologia genera mayor beneficio en salud a un costo adicional. La incorporacion depende de si el ICER esta por debajo del umbral de disposicion a pagar del ISSL.',
     dec:(i,w)=>i<=w?'Costo-efectivo. ICER por debajo del umbral ('+fPl(w)+' por AV/AVAC)':'No costo-efectivo. ICER supera el umbral ('+fPl(w)+' por AV/AVAC)'},
-  SE:{css:'q-se',q:'SE — Mas barato, mas efectivo',
+  SE:{css:'q-se',q:'SE: Mas barato, mas efectivo',
     t:'Tecnologia dominante',
     d:'La nueva tecnologia genera mayor beneficio Y tiene menor costo que el estandar de cuidado actual. No requiere comparacion con el umbral. La incorporacion esta directamente justificada.',
     dec:()=>'Tecnologia dominante. Se incorpora sin necesidad de comparar con el umbral.'},
-  NW:{css:'q-nw',q:'NO — Mas caro, menos efectivo',
+  NW:{css:'q-nw',q:'NO: Mas caro, menos efectivo',
     t:'Tecnologia dominada',
     d:'La nueva tecnologia es mas cara Y menos efectiva que el estandar de cuidado actual. No existe justificacion economica para su adopcion bajo este analisis.',
     dec:()=>'Tecnologia dominada. No se incorpora.'},
-  SW:{css:'q-sw',q:'SO — Mas barato, menos efectivo',
+  SW:{css:'q-sw',q:'SO: Mas barato, menos efectivo',
     t:'Rechazo recomendado (GCEEE)',
     d:'La nueva tecnologia genera menor beneficio clinico aunque tenga menor costo. La GCEEE recomienda rechazar: el ahorro no justifica una perdida de efectividad. Solo en contextos de recursos muy limitados y con deliberacion explicita podria considerarse.',
     dec:()=>'Rechazo recomendado. La GCEEE no justifica aceptar perdida de efectividad por ahorro.'},
@@ -1007,7 +1013,7 @@ const QD={
     t:'Sin diferencia detectable',
     d:'No hay diferencia de costo ni de efectividad entre las alternativas. El ICER no esta definido.',
     dec:()=>'Sin diferencia entre alternativas. ICER no definido.'},
-  CM:{css:'q-cm',q:'ΔEfectividad = 0 — Analisis de minimizacion de costos',
+  CM:{css:'q-cm',q:'ΔEfectividad = 0: Analisis de minimizacion de costos',
     t:'Minimizacion de costos aplicable',
     d:'Efectividad incremental igual a cero. El metodo correcto es el analisis de minimizacion de costos (AMC): se comparan los costos de producir el mismo resultado clinico. Si el nuevo tratamiento es mas barato, se incorpora; si es mas caro, no se justifica.',
     dec:(i,w,dC)=>dC<0?'Nuevo tratamiento mas barato con igual efectividad. AMC favorece la incorporacion.':dC>0?'Nuevo tratamiento mas caro con igual efectividad. AMC no justifica la incorporacion.':'Costos identicos. Equivalencia economica total.'}
@@ -1217,8 +1223,8 @@ function update(){
   const tv=document.getElementById('ti-v');
   document.getElementById('ti-wtp').textContent=fPl(S.wtp)+' / AV/AVAC';
   document.getElementById('ti-icer').textContent=isFinite(icer)?fPl(icer)+' / AV/AVAC':'—';
-  if(q==='SE'){tv.textContent='Tecnologia dominante — no requiere umbral';tv.className='under'}
-  else if(q==='NW'){tv.textContent='Tecnologia dominada — no requiere umbral';tv.className='over'}
+  if(q==='SE'){tv.textContent='Tecnologia dominante: no requiere umbral';tv.className='under'}
+  else if(q==='NW'){tv.textContent='Tecnologia dominada: no requiere umbral';tv.className='over'}
   else if(q==='NE'&&isFinite(icer)){
     const d=S.wtp-icer;
     if(d>=0){tv.textContent=fPl(d)+' / AV/AVAC por debajo del umbral';tv.className='under'}
@@ -1285,6 +1291,25 @@ if(window.ResizeObserver){
 }
 
 update();
+</script>
+<div class="fic-pop" id="fic-pop" role="note">Luvina es un estado ficticio creado para este diplomado. Sus instituciones, los fármacos, los estudios y las cifras de este simulador son ficticios y tienen propósito exclusivamente pedagógico.</div>
+<script>
+(function(){
+  var b=document.getElementById('fic-btn'),p=document.getElementById('fic-pop');
+  if(!b||!p)return;
+  function place(){
+    var r=b.getBoundingClientRect();
+    var l=Math.min(r.left,window.innerWidth-p.offsetWidth-10);
+    p.style.left=Math.max(10,l)+'px';
+    p.style.top=(r.bottom+8)+'px';
+  }
+  function open(){p.classList.add('on');b.setAttribute('aria-expanded','true');place();}
+  function close(){p.classList.remove('on');b.setAttribute('aria-expanded','false');}
+  b.addEventListener('click',function(e){e.stopPropagation();p.classList.contains('on')?close():open();});
+  document.addEventListener('click',function(e){if(e.target!==b&&!p.contains(e.target))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  window.addEventListener('resize',function(){if(p.classList.contains('on'))place();});
+})();
 </script>
 </body>
 </html>

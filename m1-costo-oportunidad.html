@@ -149,6 +149,12 @@ canvas{position:absolute;inset:0;width:100%;height:100%}
 .meth{font-size:9px;color:var(--gray);line-height:1.5;margin-top:12px;border-top:1px solid #EEEEF5;padding-top:8px}
 
 
+
+/* nota de datos ficticios */
+.fic{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;margin-left:8px;padding:0;border:1px solid var(--cobalt4);border-radius:50%;background:transparent;color:var(--cobalt4);font-family:'Inter',system-ui,sans-serif;font-size:9.5px;font-weight:700;line-height:1;letter-spacing:0;text-transform:none;cursor:pointer;vertical-align:middle}
+.fic:hover,.fic:focus,.fic[aria-expanded="true"]{background:var(--cobalt2);border-color:var(--cobalt2);color:#fff;outline:none}
+.fic-pop{position:fixed;z-index:999;max-width:310px;background:var(--navy);color:#fff;font-family:'Inter',system-ui,sans-serif;font-size:10.5px;font-weight:400;line-height:1.55;letter-spacing:0;text-transform:none;padding:10px 13px;border-radius:6px;box-shadow:0 6px 20px rgba(1,6,93,.32);display:none}
+.fic-pop.on{display:block}
 </style>
 </head>
 <body>
@@ -485,7 +491,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%}
   </g>
   </svg>
     <div class="hdr-mod">
-      <div class="hdr-sub">Módulo 1, Economía de la salud</div>
+      <div class="hdr-sub">Módulo 1, Economía de la salud<button type="button" class="fic" id="fic-btn" aria-expanded="false" aria-controls="fic-pop" aria-label="Nota sobre los datos">?</button></div>
     </div>
   </div>
   <div class="hdrbadge">Costo de oportunidad</div>
@@ -556,7 +562,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%}
         <span class="ej-tag">Ejemplo en salud</span>
         <h3>El expediente clínico electrónico avanzado</h3>
         <div class="ej-src">Kobelt, OHE, 2002; Sinsky et al., Ann Intern Med, 2016</div>
-        <div class="ej-p">Un expediente clínico electrónico avanzado exige más tiempo de llenado y ahorra tiempo al tener la información del paciente a la mano. El efecto neto sobre el tiempo del médico decide de qué lado cae la renuncia; en práctica ambulatoria, por cada hora de atención directa el médico dedica cerca de 2 horas al expediente y trabajo de escritorio (Sinsky).</div>
+        <div class="ej-p">El ISES, el Instituto de Seguridad Social de Luvina, evalúa un expediente clínico electrónico avanzado: exige más tiempo de llenado y ahorra tiempo al tener la información del paciente a la mano. El efecto neto sobre el tiempo del médico decide de qué lado cae la renuncia; en práctica ambulatoria, por cada hora de atención directa el médico dedica cerca de 2 horas al expediente y trabajo de escritorio (Sinsky).</div>
         <div class="p-row"><div class="p-lbl">Minutos por consulta</div><input class="p-inp" id="e-min" type="number" value="20" min="5" step="1"><div class="p-unit">min</div></div>
         <div class="p-row"><div class="p-lbl">Minutos adicionales de llenado por consulta <span class="p-src">supuesto editable</span></div><input class="p-inp" id="e-doc" type="number" value="4" min="0" step="1"><div class="p-unit">min</div></div>
         <div class="p-row"><div class="p-lbl">Minutos ahorrados con la información a la mano <span class="p-src">supuesto editable</span></div><input class="p-inp" id="e-sav" type="number" value="2" min="0" step="1"><div class="p-unit">min</div></div>
@@ -568,7 +574,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%}
         <span class="ej-tag">Ejemplo en gestión</span>
         <h3>El comité de tumores</h3>
         <div class="ej-src">Ke et al., Cost Eff Resour Alloc, 2013</div>
-        <div class="ej-p">Sesionar un comité de tumores usa horas de especialistas que salen de la atención directa. La revisión de Ke encontró que los estudios no cuantifican si los beneficios compensan ese costo: la renuncia es real y el retorno debe justificarla. El mismo razonamiento aplica a la capacitación del equipo.</div>
+        <div class="ej-p">Un hospital de especialidades del ISES sesiona un comité de tumores: usa horas de especialistas que salen de la atención directa. La revisión de Ke encontró que los estudios no cuantifican si los beneficios compensan ese costo: la renuncia es real y el retorno debe justificarla. El mismo razonamiento aplica a la capacitación del equipo.</div>
         <div class="p-row"><div class="p-lbl">Especialistas que sesionan</div><input class="p-inp" id="g-esp" type="number" value="8" min="1" step="1"><div class="p-unit">pers</div></div>
         <div class="p-row"><div class="p-lbl">Horas al mes por especialista</div><input class="p-inp" id="g-hrs" type="number" value="4" min="0" step="1"><div class="p-unit">h/mes</div></div>
         <div class="p-row"><div class="p-lbl">Minutos por consulta de especialidad</div><input class="p-inp" id="g-min" type="number" value="20" min="5" step="5"><div class="p-unit">min</div></div>
@@ -583,7 +589,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%}
   <div class="left"><div class="left-inner">
     <div class="sc-block">
       <div class="sc-title">La misma dosis, dos presentaciones</div>
-      <div class="sc-sub">Un hospital administra un biológico inyectable. La jeringa prellenada llega lista para aplicar; el vial exige que enfermería reconstituya cada dosis.</div>
+      <div class="sc-sub">Un hospital del ISES administra un biológico inyectable. La jeringa prellenada llega lista para aplicar; el vial exige que enfermería reconstituya cada dosis.</div>
     </div>
     <div class="cat-title">Escenario</div>
     <div class="p-row"><div class="p-lbl">Dosis aplicadas al año</div><input class="p-inp" id="j-n" type="number" value="20000" min="100" step="1000"><div class="p-unit">dosis</div></div>
@@ -644,7 +650,7 @@ canvas{position:absolute;inset:0;width:100%;height:100%}
     </div>
 
     <div class="meth">
-      <strong>Notas metodológicas.</strong> El promedio OCDE se calcula como promedio ponderado por población de los 38 países miembros que reportan cada año (cobertura mínima del 70% de la población OCDE); puede diferir ligeramente del agregado "Miembros OCDE" que publica el Banco Mundial. Varias series nacionales tienen rupturas metodológicas documentadas por la propia fuente (p. ej. Australia e Israel en 2000, cambios de definición de personal de enfermería); las series se muestran tal como las publica la fuente, con la excepción de un punto atípico aislado de Italia (médicos, 2002) excluido por inconsistencia con el resto de la serie. Los precios por dosis, el tiempo adicional de documentación del expediente y los rendimientos por jornada son supuestos editables; los tiempos de preparación por dosis parten del estudio de tiempos y movimientos citado en Fuentes y las conversiones a jornadas usan la jornada anual FTE capturada. El ejercicio omite costos de implementación, capacitación y desperdicio de dosis. Herramienta con fines docentes (Diplomado Pulso, Módulo 1); no sustituye una evaluación económica formal.
+      <strong>Notas metodológicas.</strong> El promedio OCDE se calcula como promedio ponderado por población de los 38 países miembros que reportan cada año (cobertura mínima del 70% de la población OCDE); puede diferir ligeramente del agregado "Miembros OCDE" que publica el Banco Mundial. Varias series nacionales tienen rupturas metodológicas documentadas por la propia fuente (p. ej. Australia e Israel en 2000, cambios de definición de personal de enfermería); las series se muestran tal como las publica la fuente, con la excepción de un punto atípico aislado de Italia (médicos, 2002) excluido por inconsistencia con el resto de la serie. Los precios por dosis, el tiempo adicional de documentación del expediente y los rendimientos por jornada son supuestos editables; los tiempos de preparación por dosis parten del estudio de tiempos y movimientos citado en Fuentes y las conversiones a jornadas usan la jornada anual FTE capturada. El ejercicio omite costos de implementación, capacitación y desperdicio de dosis. Los datos de la brecha (Banco Mundial) y los estudios citados en Fuentes son reales. Herramienta con fines docentes (Diplomado Pulso, Módulo 1); no sustituye una evaluación económica formal.
     </div>
   </div>
 </div>
@@ -889,6 +895,25 @@ window.addEventListener("resize", ()=>{ if(document.getElementById("view-gap").c
 draw();
 renderChoice();
 renderEj();
+</script>
+<div class="fic-pop" id="fic-pop" role="note">Luvina es un estado ficticio creado para este diplomado. Sus instituciones, los fármacos, los estudios y las cifras de este simulador son ficticios y tienen propósito exclusivamente pedagógico.</div>
+<script>
+(function(){
+  var b=document.getElementById('fic-btn'),p=document.getElementById('fic-pop');
+  if(!b||!p)return;
+  function place(){
+    var r=b.getBoundingClientRect();
+    var l=Math.min(r.left,window.innerWidth-p.offsetWidth-10);
+    p.style.left=Math.max(10,l)+'px';
+    p.style.top=(r.bottom+8)+'px';
+  }
+  function open(){p.classList.add('on');b.setAttribute('aria-expanded','true');place();}
+  function close(){p.classList.remove('on');b.setAttribute('aria-expanded','false');}
+  b.addEventListener('click',function(e){e.stopPropagation();p.classList.contains('on')?close():open();});
+  document.addEventListener('click',function(e){if(e.target!==b&&!p.contains(e.target))close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  window.addEventListener('resize',function(){if(p.classList.contains('on'))place();});
+})();
 </script>
 </body>
 </html>

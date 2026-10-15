@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>U17 Comparaciones indirectas y metaanálisis en red (Regularización, Pulso)</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><style>
+<title>U17 Comparaciones indirectas y metaanálisis en red (Reforzamiento de conceptos, Pulso)</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><style>
 :root{--navy:#01065D;--cobalt:#006FFB;--cobalt2:#0071FF;--cobalt4:#B3DAFF;--cobalt5:#E8F3FF;--red:#FF3F0B;--gray:#6C6C6C;--green:#00875A;--amber:#D97706;
 --ser:'EB Garamond',Georgia,serif;--san:'Inter',system-ui,sans-serif;--mon:'Space Mono',monospace}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -423,9 +423,9 @@ label.btn{display:inline-block}
        id="path63"
        style="fill:#ffffff;stroke-width:0.264583" />
   </g>
-  </svg></div><span class="badge">Regularización, unidad U17</span></header>
+  </svg></div><span class="badge">Reforzamiento de conceptos, unidad U17</span></header>
 <main>
-<p class="crumbs"><a href="index.html">Regularización</a> / <a href="hub-m04.html">Módulo 4</a></p>
+<p class="crumbs"><a href="index.html">Reforzamiento de conceptos</a> / <a href="hub-m04.html">Módulo 4</a></p>
 <div class="kicker">Módulo 4, Síntesis de evidencia</div>
 <h1>Comparaciones indirectas y metaanálisis en red</h1>
 <p class="meta">Viene de la cápsulas 4.3 y 4.5, Comparaciones indirectas y metaanálisis en red. Necesita antes: <a href="u16-heterogeneidad.html">U16 Heterogeneidad</a></p>
@@ -445,7 +445,7 @@ const SK='pulso-reg:v1';
 function stLoad(){try{const v=JSON.parse(localStorage.getItem(SK));if(v&&v.u&&v.h)return v}catch(e){}return {u:{},h:{}}}
 function stSave(s){try{localStorage.setItem(SK,JSON.stringify(s));return true}catch(e){return false}}
 function stExport(){const s=stLoad();s.guardado=new Date().toISOString();const b=new Blob([JSON.stringify(s,null,1)],{type:'application/json'});
- const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='mi-avance-regularizacion.json';document.body.appendChild(a);a.click();a.remove()}
+ const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='mi-avance-reforzamiento.json';document.body.appendChild(a);a.click();a.remove()}
 function stImport(f){const r=new FileReader();r.onload=()=>{try{const n=JSON.parse(r.result);if(!n||!n.u||!n.h)throw 0;const s=stLoad();
  for(const k of ['u','h'])for(const [c,v] of Object.entries(n[k]||{})){if(!s[k][c]||(v.ts||0)>(s[k][c].ts||0))s[k][c]=v}
  if(!stSave(s)){alertBox('Este navegador no permite guardar el avance.');return}location.reload()}catch(e){alertBox('El archivo no es un avance válido.')}};r.readAsText(f)}

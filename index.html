@@ -48,6 +48,7 @@ body { font-family: var(--font-san); background: #F5F7FC; color: #111; -webkit-f
   color: var(--cobalt);
   margin-bottom: 14px;
   padding-bottom: 8px;
+  border-bottom: 2px solid var(--blue-200);
 }
 
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-bottom: 48px; }
@@ -72,12 +73,6 @@ body { font-family: var(--font-san); background: #F5F7FC; color: #111; -webkit-f
 .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; }
 .card-badge { font-family: var(--font-mon); font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: var(--blue-200); color: var(--cobalt); padding: 3px 8px; border-radius: 4px; }
 .card-arrow { color: var(--cobalt); font-size: 16px; }
-
-.refuerzo { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; background: var(--navy); border-radius: 8px; padding: 18px 22px; margin-bottom: 32px; }
-.refuerzo-text { font-size: 13px; color: var(--blue-100); line-height: 1.6; flex: 1 1 320px; }
-.refuerzo-text strong { font-family: var(--font-ser); font-size: 18px; font-weight: 500; color: #fff; display: block; margin-bottom: 2px; }
-.refuerzo-btn { font-family: var(--font-mon); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: var(--cobalt); color: #fff; text-decoration: none; padding: 11px 18px; border-radius: 6px; white-space: nowrap; transition: background 0.15s; }
-.refuerzo-btn:hover { background: var(--blue-50); }
 
 .footer { background: var(--navy); padding: 18px 48px; display: flex; align-items: center; justify-content: space-between; }
 .footer-text { font-size: 11px; color: var(--blue-100); }
@@ -605,13 +600,8 @@ body { font-family: var(--font-san); background: #F5F7FC; color: #111; -webkit-f
 <div class="content">
 
   <div class="context-box">
-    <p>Los simuladores utilizan el <strong>Estado de Luvina</strong> como universo pedagógico ficticio. Luvina es un estado imaginario que replica la estructura del sistema de salud mexicano: cuenta con su propio Instituto de Seguridad Social de Luvina (<strong>ISES</strong>), Instituto de Salud del Estado de Luvina (<strong>ISSL</strong>), Secretaría de Salud de Luvina (<strong>SSAL</strong>), Comité de Evaluación (<strong>CISAM-Luvina</strong>) y sistema de financiamiento hospitalario (<strong>DRG-ISES</strong>). Todos los fármacos, estudios e instituciones que aparecen en los simuladores son ficticios y tienen propósito exclusivamente pedagógico.</p>
+    <p>Los simuladores utilizan el <strong>Estado de Luvina</strong> como universo pedagógico ficticio. Luvina es un estado imaginario que replica la estructura del sistema de salud mexicano: cuenta con su propio instituto de seguridad social (<strong>ISES</strong>), secretaría de salud (<strong>SSAL</strong>), comité de evaluación (<strong>CISAM-Luvina</strong>) y sistema de financiamiento hospitalario (<strong>DRG-ISES</strong>). Todos los fármacos, estudios e instituciones que aparecen en los simuladores son ficticios y tienen propósito exclusivamente pedagógico.</p>
     <p>La unidad de efectividad es el <strong>AV/AVAC</strong> (años de vida / años de vida ajustados por calidad). El umbral de disposición a pagar por defecto es <strong>$260,000 MXN/AV/AVAC</strong>, equivalente a 1× el PIB per cápita de Luvina.</p>
-  </div>
-
-  <div class="refuerzo">
-    <p class="refuerzo-text"><strong>Reforzamiento de conceptos</strong>Unidades breves, organizadas por módulo, para repasar los conceptos de cada tema con una idea central, un ejemplo y un ejercicio.</p>
-    <a class="refuerzo-btn" href="regularizacion/index.html" target="_blank">Reforzamiento de conceptos →</a>
   </div>
 
   <div class="section-label">Simuladores disponibles</div>
@@ -635,41 +625,35 @@ body { font-family: var(--font-san); background: #F5F7FC; color: #111; -webkit-f
     <a class="card" href="simulador_plano_ce_m2.html" target="_blank">
       <div class="card-mod">Módulo 2</div>
       <div class="card-title">Plano de costo-efectividad</div>
-      <div class="card-desc">Los 4 cuadrantes del plano de costo-efectividad, el umbral de disposición a pagar del ISSL y el caso de minimización de costos cuando la diferencia de efectividad es cero.</div>
+      <div class="card-desc">Explora el plano CE con controles de DAP y PIB per cápita. Incluye casos especiales para minimización de costos y orientación GCEEE en el cuadrante SW.</div>
       <div class="card-footer"><span class="card-badge">Simulador</span><span class="card-arrow">→</span></div>
     </a>
 
     <a class="card" href="m4-forest-plot.html" target="_blank">
       <div class="card-mod">Módulo 4</div>
       <div class="card-title">Forest plot interactivo</div>
-      <div class="card-desc">Metaanálisis con efectos fijos y aleatorios, el peso de cada ensayo en el estimado combinado y la heterogeneidad medida con I².</div>
+      <div class="card-desc">Meta-análisis con I², efectos fijos y aleatorios. Activa o excluye estudios del universo Luvina: CUMBRE, ARCO, FULGOR, BRILLO y VISTA-A.</div>
       <div class="card-footer"><span class="card-badge">Simulador</span><span class="card-arrow">→</span></div>
     </a>
 
     <a class="card" href="m5-supuestos-costeo.html" target="_blank">
       <div class="card-mod">Módulo 5</div>
       <div class="card-title">Supuestos de costeo</div>
-      <div class="card-desc">Microcosteo de 2 esquemas oncológicos bajo las perspectivas de la GCEEE, donde incluir los costos del cuidador invierte cuál brazo resulta más barato.</div>
+      <div class="card-desc">Microcosteo con perspectivas según CSG/GCEEE. Gráfica de barras apiladas con arco de inversión entre perspectivas al incluir costos del cuidador.</div>
       <div class="card-footer"><span class="card-badge">Simulador</span><span class="card-arrow">→</span></div>
     </a>
 
     <a class="card" href="m6-tornado.html" target="_blank">
       <div class="card-mod">Módulo 6</div>
       <div class="card-title">Diagrama de tornado</div>
-      <div class="card-desc">Análisis de sensibilidad determinista sobre costos, AVACs e ICER, donde el ranking de parámetros influyentes cambia según el resultado que se mire.</div>
-      <div class="card-footer"><span class="card-badge">Simulador</span><span class="card-arrow">→</span></div>
-    </a>
-    <a class="card" href="m9-cea-completo.html" target="_blank">
-      <div class="card-mod">Módulo 6</div>
-      <div class="card-title">Análisis de costo-efectividad</div>
-      <div class="card-desc">Modelo de Markov de 2 estados para cáncer de próstata resistente a castración, con supervivencia exponencial, descuento y decisión contra el umbral del ISSL.</div>
+      <div class="card-desc">Análisis de sensibilidad con selector de resultado: Costos, AVACs o ICER. Colores fijos por parámetro y línea de umbral DAP en la vista de ICER.</div>
       <div class="card-footer"><span class="card-badge">Simulador</span><span class="card-arrow">→</span></div>
     </a>
 
     <a class="card" href="m7-bim-v4.html" target="_blank">
       <div class="card-mod">Módulo 7</div>
       <div class="card-title">Modelo de impacto presupuestal</div>
-      <div class="card-desc">Impacto presupuestal de Velonex en diabetes tipo 2 para el ISSL, desde la población elegible hasta el efecto neto de los ahorros en complicaciones.</div>
+      <div class="card-desc">BIM completo para diabetes tipo 2 en Luvina. Funnel de pacientes, curvas de adopción, complicaciones y resultados en cascada (waterfall).</div>
       <div class="card-footer"><span class="card-badge">Simulador</span><span class="card-arrow">→</span></div>
     </a>
 
@@ -678,6 +662,20 @@ body { font-family: var(--font-san); background: #F5F7FC; color: #111; -webkit-f
       <div class="card-title">Listas de verificación para la lectura crítica</div>
       <div class="card-desc">CHEERS 2022 (28 ítems), la lista de Philips (23 atributos) y el template de 10 preguntas de la cápsula 8.4, con anotaciones por ítem y un resumen descargable de la revisión.</div>
       <div class="card-footer"><span class="card-badge">Simulador</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card" href="m9-cea-completo.html" target="_blank">
+      <div class="card-mod">Módulo 9</div>
+      <div class="card-title">Análisis de costo-efectividad</div>
+      <div class="card-desc">CEA para cáncer de próstata resistente a castración en Luvina. Modelo de Markov de dos estados con distribuciones exponenciales de supervivencia y descuento.</div>
+      <div class="card-footer"><span class="card-badge">Simulador</span><span class="card-arrow">→</span></div>
+    </a>
+
+    <a class="card" href="regularizacion/index.html" target="_blank">
+      <div class="card-mod">Módulos 1 a 10</div>
+      <div class="card-title">Reforzamiento de conceptos</div>
+      <div class="card-desc">Una página por módulo con un diagnóstico corto y 44 unidades de repaso. Cada unidad trae una explicación, un ejemplo resuelto, un ejercicio que se califica en pantalla y una hoja para papel y lápiz.</div>
+      <div class="card-footer"><span class="card-badge">Repaso</span><span class="card-arrow">→</span></div>
     </a>
 
   </div>
